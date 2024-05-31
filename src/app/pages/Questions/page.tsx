@@ -158,54 +158,62 @@ const QuestionList = () => {
               Get Random Question
             </Button>
             {randomQuestion && (
-              <Box
-                mb={2}
-                p={2}
-                border={1}
-                borderRadius={4}
-                borderColor="grey.300"
-                position="relative"
-              >
-                <IconButton
-                  size="small"
-                  onClick={() => setRandomQuestion(null)}
-                  style={{ position: "absolute", top: 0, right: 0 }}
-                >
-                  <CloseIcon />
-                </IconButton>
-                <Typography variant="h6" gutterBottom>
-                  {randomQuestion.title}
-                </Typography>
-                <Typography variant="body1">
-                  YouTube Link:{" "}
-                  {renderLinkCell(
-                    randomQuestion.yt_link,
-                    "YouTube",
-                    <Image src={YT.src} alt="YouTube" width={30} height={30} />
-                  )}
-                </Typography>
-                <Typography variant="body1">
-                  GFG Link:{" "}
-                  {renderLinkCell(
-                    randomQuestion.gfg_link,
-                    "GFG",
-                    <Image src={GFG.src} alt="GFG" width={30} height={30} />
-                  )}
-                </Typography>
-                <Typography variant="body1">
-                  LeetCode Link:{" "}
-                  {renderLinkCell(
-                    randomQuestion.lc_link,
-                    "LeetCode",
-                    <Image
-                      src={Leetcode.src}
-                      alt="LeetCode"
-                      width={30}
-                      height={30}
-                    />
-                  )}
-                </Typography>
-              </Box>
+             <Box
+             mb={2}
+             p={2}
+             border={1}
+             borderRadius={4}
+             borderColor="grey.300"
+             position="relative"
+             boxShadow={2} // Adding a subtle box shadow for depth
+             bgcolor="background.paper" // Setting background color
+           >
+             {/* Close button */}
+             <IconButton
+               size="small"
+               onClick={() => setRandomQuestion(null)}
+               style={{ position: "absolute", top: 0, right: 0 }}
+             >
+               <CloseIcon />
+             </IconButton>
+             
+             {/* Question */}
+             <Typography variant="h6" gutterBottom>
+               Question: {randomQuestion.title}
+             </Typography>
+             
+             {/* Links */}
+             <Typography variant="body1">
+               YouTube Link:{" "}
+               {renderLinkCell(
+                 randomQuestion.yt_link,
+                 "YouTube",
+                 <Image src={YT.src} alt="YouTube" width={30} height={30} />
+               )}
+             </Typography>
+             <Typography variant="body1">
+               GFG Link:{" "}
+               {renderLinkCell(
+                 randomQuestion.gfg_link,
+                 "GFG",
+                 <Image src={GFG.src} alt="GFG" width={30} height={30} />
+               )}
+             </Typography>
+             <Typography variant="body1">
+               LeetCode Link:{" "}
+               {renderLinkCell(
+                 randomQuestion.lc_link,
+                 "LeetCode",
+                 <Image
+                   src={Leetcode.src}
+                   alt="LeetCode"
+                   width={30}
+                   height={30}
+                 />
+               )}
+             </Typography>
+           </Box>
+           
             )}
             <TableContainer component={Paper}>
               <Table>
